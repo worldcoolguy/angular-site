@@ -26,7 +26,6 @@ var webpackConfig = {
 
   module: {
     loaders: [
-      // .ts files for TypeScript
       {
         test: /\.ts$/,
         loaders: [
@@ -35,11 +34,21 @@ var webpackConfig = {
           'angular2-router-loader'
         ]
       },
-      { test: /\.css$/, loaders: ['to-string-loader', 'css-loader'] },
-      { test: /\.html$/, loader: 'raw-loader' }
+      {
+        test: /\.css$/,
+        loaders: ['to-string-loader', 'css-loader']
+      },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        loaders: ['raw-loader', 'sass-loader']
+      },
+      {
+        test: /\.html$/,
+        loader: 'raw-loader'
+      }
     ]
   }
-
 };
 
 
