@@ -1,0 +1,54 @@
+@mixin background-image {
+  position: absolute;
+  left: -5%;
+  top: -5%;
+  width: 110%;
+  height: 110%;
+  background-size: cover;
+  background-position: center center;
+  filter:  sepia(100%) hue-rotate(180deg);
+}
+
+.landing-page .background {
+  position: absolute;
+  overflow: hidden;
+  height: 100%;
+  width:100%;
+  top:0;
+  left:0;
+
+}
+.landing-page .background > .image {
+  @include background-image;
+}
+.landing-page .background small {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+
+}
+.landing-page .background small a{
+  color: #444444;
+}
+
+
+.landing-page .background-blur {
+  position: absolute;
+  overflow: hidden;
+  height: 100%;
+  width: 50%;
+  top:0;
+  left:0;
+}
+
+.landing-page .background-blur .background2 {
+  position: relative;
+  width: 200%;
+  height: 100%;
+}
+
+.landing-page .background-blur .background2 > .image {
+  @include background-image;
+  filter: blur(10px) sepia(100%) hue-rotate(180deg);
+}
+
