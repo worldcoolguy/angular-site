@@ -7,7 +7,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 
-import { AboutComponent } from './about/about.component';
 import { HelloComponent, HelloBackgroundDirective } from './hello/hello.component';
 import { RepoBrowserComponent } from './github/repo-browser/repo-browser.component';
 import { RepoListComponent } from './github/repo-list/repo-list.component';
@@ -18,12 +17,10 @@ import { ContactComponent } from './contact/contact.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent,
     RepoBrowserComponent,
     RepoListComponent,
     RepoDetailComponent,
     HelloComponent,
-    ContactComponent,
     HelloBackgroundDirective
   ],
   imports: [
