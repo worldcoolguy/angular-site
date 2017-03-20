@@ -1,8 +1,15 @@
-<div class="flipper">
-  <div class="front">
-    <img src="{{image}}">
-  </div>
-  <div class="back">
-    IPSC is....
+<div [ngClass]="{'flip-container': true, 'active': setActiveClass, 'back-visible': setVisibleBack }">
+  <div class="flipper">
+    <div class="front">
+      <img *ngIf="image" src="{{image}}">
+      <div *ngIf="video" class="video">
+      <video autoplay loop muted>
+        <source src="{{video}}" type="video/mp4">
+      </video>
+      </div>
+    </div>
+    <div class="back">
+      <ng-content></ng-content>
+    </div>
   </div>
 </div>

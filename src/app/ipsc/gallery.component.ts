@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input, AfterViewInit} from '@angular/core';
 
 @Component({
   selector: 'gallery-component',
@@ -8,8 +8,10 @@ import { Component, Input } from '@angular/core';
   ]
 
 })
-export class GalleryComponent {
-  private _imageurl = '';
+export class GalleryComponent implements AfterViewInit{
+  public setActiveClass: boolean;
+  private _imageurl: string;
+  private _videourl: string;
 
   // Override the passed attribute to set general location of gallery images.
   @Input()
@@ -18,7 +20,30 @@ export class GalleryComponent {
   }
   get image(): string { return this._imageurl; }
 
+  @Input()
+  set video(video: string) {
+    this._videourl = './app/ipsc/' + video.trim();
+  }
+  get video(): string { return this._videourl;}
+
+  @Input() setVisibleBack: boolean;
+  @Input() showBack: boolean;
+
+
+
   constructor () {
 
+  }
+
+
+  ngAfterViewInit() {
+    setTimeout(() => this.setActiveClass = true, (Math.floor(Math.random() * 3000) + 500));
+
+    if (this.showBack) {
+      setTimeout(() => {
+        this.setActiveClass = false;
+        this.setVisibleBack = true;
+      }, this.showBack);
+    }
   }
 }
