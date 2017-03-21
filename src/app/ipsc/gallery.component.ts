@@ -27,7 +27,8 @@ export class GalleryComponent implements AfterViewInit{
   get video(): string { return this._videourl;}
 
   @Input() setVisibleBack: boolean;
-  @Input() showBack: boolean;
+  @Input() flip: boolean;
+  @Input() initflip: number;
 
 
 
@@ -37,13 +38,13 @@ export class GalleryComponent implements AfterViewInit{
 
 
   ngAfterViewInit() {
-    setTimeout(() => this.setActiveClass = true, (Math.floor(Math.random() * 3000) + 500));
+    setTimeout(() => this.setActiveClass = true, this.initflip);
 
-    if (this.showBack) {
+    if (this.flip) {
       setTimeout(() => {
         this.setActiveClass = false;
         this.setVisibleBack = true;
-      }, this.showBack);
+      }, this.flip);
     }
   }
 }
