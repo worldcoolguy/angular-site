@@ -1,16 +1,16 @@
 {
-  "name": "angular2-seed",
+  "name": "troelslenda-resume",
   "version": "1.0.0",
-  "description": "A simple starter Angular2 project",
+  "description": "A site about me.",
   "scripts": {
     "build": "webpack --progress",
     "watch": "npm run build -- --watch",
     "server": "webpack-dev-server --inline --progress --port 3000 --content-base src",
-    "start": "npm run server"
+    "api": "json-server --watch src/endomondo.json --port 3004",
+    "start": "concurrently -p \"[{name}]\" -n \"WebPack Dev Server,JsonServer,LESS\" -c \"bgBlue.bold,bgMagenta.bold,bgGreen.bold\" \"npm run server\" \"npm run api\""
   },
   "contributors": [
-    "Rob Wormald <robwormald@gmail.com>",
-    "PatrickJS <github@gdi2290.com>"
+    "Troels Lenda<troelslenda@gmail.com>"
   ],
   "license": "MIT",
   "dependencies": {
@@ -38,7 +38,9 @@
     "angular2-router-loader": "^0.3.4",
     "angular2-template-loader": "^0.6.0",
     "awesome-typescript-loader": "^2.2.4",
+    "concurrently": "^3.4.0",
     "css-loader": "^0.25.0",
+    "json-server": "^0.9.6",
     "node-sass": "^4.5.0",
     "raw-loader": "^0.5.1",
     "sass-loader": "^6.0.3",
@@ -48,18 +50,12 @@
     "webpack-dev-server": "2.1.0-beta.11",
     "webpack-merge": "^0.15.0"
   },
-  "keywords": [
-    "Angular2",
-    "angular2-seed",
-    "official angular 2 seed",
-    "official angular2 seed"
-  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/angular/angular2-seed.git"
+    "url": "git+https://github.com/troelslenda/resume.git"
   },
   "bugs": {
-    "url": "https://github.com/angular/angular2-seed/issues"
+    "url": "https://github.com/troelslenda/resume/issues"
   },
-  "homepage": "https://github.com/angular/angular2-seed#readme"
+  "homepage": "http://troelslenda.com"
 }
