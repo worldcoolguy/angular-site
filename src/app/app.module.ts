@@ -8,6 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 
 import { HelloComponent, HelloBackgroundDirective } from './hello/hello.component';
+import { WorkComponent } from './work/work.component';
 import { IpscComponent } from './ipsc/ipsc.component';
 import { GalleryComponent } from './ipsc/gallery.component';
 import { RepoBrowserComponent } from './github/repo-browser/repo-browser.component';
@@ -24,6 +25,7 @@ import { ContactComponent } from './contact/contact.component';
     RepoDetailComponent,
     HelloComponent,
     HelloBackgroundDirective,
+    WorkComponent,
     IpscComponent,
     GalleryComponent,
   ],
