@@ -6,7 +6,7 @@
     "build": "webpack --progress",
     "watch": "npm run build -- --watch",
     "server": "webpack-dev-server --inline --progress --port 3000 --content-base src",
-    "api": "json-server --watch src/endomondo.json --port 3004",
+    "api": "json-server --watch src/api-mock-data.json --port 3004",
     "start": "concurrently -p \"[{name}]\" -n \"WebPack Dev Server,JsonServer,LESS\" -c \"bgBlue.bold,bgMagenta.bold,bgGreen.bold\" \"npm run server\" \"npm run api\""
   },
   "contributors": [
