@@ -25,7 +25,7 @@ img {
 
 /* flip speed goes here */
 .flipper {
-  transition: .6s;
+  transition: 0.5s;
   transform-style: preserve-3d;
 
   position: relative;
@@ -49,6 +49,7 @@ img {
 
 /* back, initially hidden pane */
 .back {
+  //border: 2px solid red;
   font-size: 0;
   z-index: 1;
   transform: rotateY(0deg);

@@ -8,7 +8,7 @@
 }
 
 .ipsccollage {
-  height: 100%;
+  height:100%;
   font-size: 0;
   vertical-align: top;
   background: black;
@@ -17,6 +17,7 @@
 .gallery-item {
   .gallery-item{ display: block }
   display: inline-block;
+ // overflow: hidden;
 }
 
 .width-50 {

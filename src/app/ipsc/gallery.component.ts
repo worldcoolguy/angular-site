@@ -1,5 +1,6 @@
 import {Component, Input, AfterViewInit} from '@angular/core';
 
+
 @Component({
   selector: 'gallery-component',
   templateUrl: "gallery.component.html",
@@ -31,20 +32,36 @@ export class GalleryComponent implements AfterViewInit{
   @Input() initflip: number;
 
 
+  assetLoaded() {
+    // Flip image visible on load complete.
+    this.setActiveClass = true;
+  }
+
 
   constructor () {
 
   }
 
+  static flipGalleryItem(itemId: string) {
+    //let el = document.getElementById(itemId);
+    console.log('hest');
+  }
 
   ngAfterViewInit() {
-    setTimeout(() => this.setActiveClass = true, this.initflip);
 
-    if (this.flip) {
+    if (this._videourl) {
+      this.setActiveClass = true;
+    }
+
+
+
+    //setTimeout(() => this.setActiveClass = true, this.initflip);
+
+    /*if (this.flip) {
       setTimeout(() => {
         this.setActiveClass = false;
         this.setVisibleBack = true;
       }, this.flip);
-    }
+    }*/
   }
 }

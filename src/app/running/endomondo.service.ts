@@ -12,6 +12,5 @@ export class EndomondoService{
 
     getActivities(): Observable<Activity[]> {
         return this.http.get(this.endpoint_url).map(res => res.json() as Activity[]);
-
     }
 }

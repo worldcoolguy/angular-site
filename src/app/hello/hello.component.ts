@@ -21,7 +21,7 @@ export class HelloComponent {
 })
 export class HelloBackgroundDirective {
   constructor(el: ElementRef) {
-    let url = './app/assets/img-0022.jpg';
+    let url = './app/hello/images/img-0003.jpg';
     el.nativeElement.style.backgroundImage = 'url(' + url + ')';
   }
 }

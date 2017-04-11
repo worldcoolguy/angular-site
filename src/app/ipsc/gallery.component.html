@@ -1,7 +1,7 @@
 <div [ngClass]="{'flip-container': true, 'active': setActiveClass, 'back-visible': setVisibleBack }">
   <div class="flipper">
     <div class="front">
-      <img *ngIf="image" src="{{image}}">
+      <img *ngIf="image" src="{{image}}" (load)="assetLoaded()">
       <div *ngIf="video" class="video">
       <video autoplay loop muted>
         <source src="{{video}}" type="video/mp4">
