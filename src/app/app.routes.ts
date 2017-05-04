@@ -10,6 +10,7 @@ import { RepoDetailComponent } from './github/repo-detail/repo-detail.component'
 import { ContactComponent } from './contact/contact.component';
 
 export const rootRouterConfig: Routes = [
+  { path: '', component: HelloComponent},
   { path: 'latest-work', component: WorkComponent },
   { path: 'running', component: RunningComponent },
   { path: 'ipsc', component: IpscComponent }

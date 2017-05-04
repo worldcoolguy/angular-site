@@ -1,11 +1,14 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable, Directive, ElementRef } from '@angular/core';
 import {Location} from '@angular/common';
 import { EndomondoService } from './endomondo.service';
 import { Activity } from './activity';
+import { BaseChartDirective } from 'ng2-charts';
+
 
 @Component({
     selector: 'running',
     templateUrl: "./running.html",
+    styleUrls: ['./running.scss'],
 })
 
 export class RunningComponent {
@@ -18,11 +21,11 @@ export class RunningComponent {
 }
 
 @Component({
-    selector: 'activities-list',
+    selector: 'running-highscore',
     providers: [EndomondoService],
-    template: `<h2>aktiviteter fra Endomondo</h2>
+    template: `
     <table>
-    <tr *ngFor="let activity of (activities | RunningPipe)">
+    <tr *ngFor="let activity of (activities | RunningPipe | HighscorePipe )">
      <td>{{ activity.date }}</td>
      <td>{{ activity.activity }}</td>
      <td>{{ activity.distance }}</td>
@@ -30,7 +33,28 @@ export class RunningComponent {
     </tr>
     </table>`
 })
-export class EndomondoComponent {
+export class RunningHighscores {
+    private activities:Activity[];
+
+    constructor(private _endomondoService:EndomondoService) {
+        this._endomondoService.getActivities().subscribe(activities => {this.activities = activities});
+    }
+}
+
+
+@Component({
+    selector: 'running-last-activity',
+    providers: [EndomondoService],
+    template: `<table>
+      <tr *ngFor="let activity of (activities | RunningPipe )| slice:0:3;">
+        <td>{{ activity.date }}</td>
+        <td>{{ activity.activity }}</td>
+        <td>{{ activity.distance }}</td>
+        <td>{{ activity.time }}</td>
+      </tr>
+    </table>`
+})
+export class EndomondoLastActivity {
     private activities:Activity[];
 
     constructor(private _endomondoService:EndomondoService) {
@@ -39,11 +63,11 @@ export class EndomondoComponent {
 }
 
 @Component({
-    selector: 'running-highscore',
+    selector: 'running-graph',
     providers: [EndomondoService],
-    template: `<h2>Rekorder</h2>
-    <div>
-      <div style="width:30%;height:20%;">
+    template: `
+    
+      <div>
         <canvas baseChart
                 [datasets]="barChartData"
                 [labels]="barChartLabels"
@@ -53,69 +77,103 @@ export class EndomondoComponent {
                 (chartHover)="chartHovered($event)"
                 (chartClick)="chartClicked($event)"></canvas>
       </div>
-      <button (click)="randomize()">Update</button>
-    </div>`
+    `
 })
-export class RunningHighScore {
+export class RunningGraphHistory {
+
+    //ViewChild(BaseChartDirective) private _chart;
+
     public barChartOptions:any = {
         scaleShowVerticalLines: false,
         responsive: true
     };
-    public barChartLabels:string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+    public barChartLabels:string[] = [];
     public barChartType:string = 'bar';
     public barChartLegend:boolean = false;
 
     public barChartData:any[] = [
-        {data: [65, 59, 80, 81, 56, 55, 40]},
+        {data: []},
 
     ];
     private activities:Activity[];
 
     constructor(private _endomondoService:EndomondoService) {
+        let start: number = 2013;
 
-        let matrix: Array<string>;
-        let months;
+        let monthNames: Array<string> = ['', 'jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
-        months = [];
+        let matrix = [];
 
-        matrix = [];
+        for (let year = 2017; year >= start; year--) {
+            for (let month:number = 12; month > 0; month--) {
+                let obj = {
+                    'name': monthNames[month] + ' ' + year,
+                    'key': year + '-' + month,
+                    'distance': 0,
+                };
+                matrix.push(obj);
+            }
+        }
+
+        let labels = [];
+
+        matrix.forEach(function(item){
+            labels.push(item.name);
+        });
+
+        this.barChartLabels = labels;
 
 
         this._endomondoService.getActivities().subscribe(activities => {
             this.activities = activities;
 
             this.activities.forEach(function(item){
-
+                if (item.activity != 'Running') {
+                    return;
+                }
                 let distance = parseFloat(item.distance);
-                //totalDistance = totalDistance + distance;
 
                 let year = item.date.split(' ')[2].trim();
-                let month = item.date.split(' ')[0].trim();
+                let month = item.date.split(' ')[0].trim().toLowerCase();
+                let key = year + '-' + (monthNames.indexOf(month));
 
-                /*if (!months[year + '-' + month]) {
-                    matrix[year + '-' + month] = {};
-                    matrix[year + '-' + month].year = year;
-                    matrix[year + '-' + month].month = month;
-                    if (matrix[year + '-' + month].distance == null) {
-                        console.log('nanana');
-                        matrix[year + '-' + month].distance = 0.0;
+                matrix.forEach(function(item) {
+                    if (key == item.key) {
+                        item.distance = item.distance + distance;
                     }
-                }
+                });
 
-                matrix[year + '-' + month].distance = matrix[year + '-' + month].distance + distance;*/
             });
 
-            matrix.forEach(function(item2){
-                console.log('hest');
+            let distances = [];
+
+            matrix.forEach(function(item, i){
+                if (item.distance == 0) {
+               //     delete matrix[i];
+                 //   delete labels[i];
+
+                }
+            });
+           // this._chart.refresh();
+
+            matrix.forEach(function(item, i){
+                distances.push(parseInt(item.distance))
+            });
+
+
+            setTimeout(() => {
+                this.barChartData = [{ data: distances }];
             });
         });
+    }
+}
 
-
-    this.barChartLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017'];
-    this.barChartData = [
-            {data: [65, 59, 80, 81, 56, 55, 40, 70, 70, 70, 70, 70, 70, 70, 70]},
-
-        ];
-
+@Directive({
+    selector: '[running-background]',
+})
+export class RunningBackgroundDirective {
+    constructor(el: ElementRef) {
+        let url = './app/running/images/IMG_2598.JPG';
+        el.nativeElement.style.backgroundImage = 'url(' + url + ')';
     }
 }

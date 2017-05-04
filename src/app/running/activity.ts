@@ -3,4 +3,5 @@ export interface Activity {
     activity: string;
     distance: string;
     time: string;
+    highscore: string;
 }

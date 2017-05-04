@@ -1,36 +1,52 @@
-<div class="sub-page">
+<div class="sub-page" running-background>
     <nav><a (click)="goBack()">← Tilbage</a></nav>
 
+    <div class="content flex-col">
 
-<h1>Løb</h1>
+        <div class="inner spaceafter">
 
-<p>Her er lidt fri leg med data jonglering i Angular2. Data til siden i dette JSON feed.</p>
+        <h1>Løb</h1>
 
-<h1>Sidste løb</h1>
-5K 24:25 15 Aug 2013
+        <p>Endomondo har ikke noget offentligt tilgængeligt API, så jeg lavede en screenscrape af mine aktiviteter konsolideret ind i et JSON REST API.</p>
 
-<!--<h1>Rapporter</h1>
+        </div>
 
-<h1>Officielle tider</h1>
-<ul>
-    <li>Erimitageløbet 2:16:11 d 27 Apr 2016</li>
-    <li>BT Halvmarathon 2:16:11 d 27 Apr 2016</li>
-    <li>DHL 2:16:11 d 27 Apr 2016</li>
-</ul>
+        <div class="flex-row flex-col-data spaceafter">
 
-<h1>Personlige rekorder</h1>-->
-<running-highscore></running-highscore>
-    3K
-5K 24:25 15 Aug 2013
-10K 52:04 26 Nov 2013
-Halvmarathon 2:16:11 27 Apr 2014
+            <div class="thirtythree">
+                <div class="inner">
 
-<h1>Historie</h1>
+                <h2>Sidste 3 løb</h2>
 
-<h2>2016</h2>
-<h2>2015</h2>
-<h2>2014</h2>
-<h2>2013</h2>
+                <running-last-activity></running-last-activity>
+                </div>
 
-<activities-list></activities-list>
+            </div>
+            <div class="thirtythree">
+                <div class="inner">
+
+                <h2>Officielle tider</h2>
+                <ul>
+                    <li>Erimitageløbet 2:16:11 d 27 Apr 2016</li>
+                    <li>BT Halvmarathon 2:16:11 d 27 Apr 2016</li>
+                    <li>DHL 2:16:11 d 27 Apr 2016</li>
+                </ul>
+                </div>
+            </div>
+            <div class="thirtythree">
+                <div class="inner">
+                <h2>Personlige rekorder</h2>
+                    <running-highscore></running-highscore>
+                </div>
+            </div>
+
+        </div>
+                <div class="inner flex-cold-data last">
+
+        <h2>Aktivitet over tid</h2>
+
+        <running-graph></running-graph>
+
+                </div>
+    </div>
 </div>

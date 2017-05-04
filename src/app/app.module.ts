@@ -7,13 +7,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 
+import { ChartsModule } from 'ng2-charts';
 import { HelloComponent, HelloBackgroundDirective } from './hello/hello.component';
 import { WorkComponent } from './work/work.component';
 import { IpscComponent } from './ipsc/ipsc.component';
 import { GalleryComponent } from './ipsc/gallery.component';
-import { RunningComponent, EndomondoComponent} from './running/running.component';
-import { RunningPipe } from './running/running.pipe';
-
+import { RunningComponent,
+         EndomondoLastActivity,
+         RunningHighscores,
+         RunningBackgroundDirective,
+         RunningGraphHistory} from './running/running.component';
+import { RunningPipe, HighscorePipe } from './running/running.pipe';
 
 import { RepoBrowserComponent } from './github/repo-browser/repo-browser.component';
 import { RepoListComponent } from './github/repo-list/repo-list.component';
@@ -33,15 +37,22 @@ import { ContactComponent } from './contact/contact.component';
     IpscComponent,
     GalleryComponent,
     RunningComponent,
-    EndomondoComponent,
-    RunningPipe
+    RunningGraphHistory,
+
+    RunningHighscores,
+    EndomondoLastActivity,
+    RunningPipe,
+    HighscorePipe,
+    RunningBackgroundDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(rootRouterConfig, { useHash: false })
+    RouterModule.forRoot(rootRouterConfig, { useHash: false }),
+    ChartsModule,
+
   ],
   providers: [
     GithubService

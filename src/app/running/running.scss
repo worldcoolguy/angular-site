@@ -1,0 +1,71 @@
+
+.sub-page {
+  overflow: hidden;
+  background-size: cover;
+  background-position: bottom center;
+}
+
+.content {
+  margin-top: 6vh;
+  padding: 10px;
+
+  box-sizing: border-box;
+  height: 94vh;
+  position: relative;
+}
+
+.left, .right {
+  width: 50%;
+}
+
+.spaceafter {
+  margin-bottom: 10px;
+}
+
+
+.flex-row {
+  display:flex;
+  flex-direction: row;
+  .thirtythree {
+    flex-grow: 1;
+    .inner {
+      height: 100%;
+    }
+    &:nth-child(1) {
+      margin-right: 5px;
+    }
+    &:nth-child(2) {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    &:nth-child(3) {
+      margin-left: 5px;
+    }
+  }
+}
+
+
+h1, h2 {
+  margin-top:0;
+}
+
+
+.inner {
+
+  box-sizing: border-box;
+  background-color: rgba(0,0,0,.6);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 2px rgba(0,0,0,.6);
+}
+
+.last {
+  flex-grow: 1;
+}
+
+.flex-col {
+  display:flex;
+  flex-direction: column;
+  .flex-col-data {
+  }
+}
