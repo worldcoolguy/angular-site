@@ -42,3 +42,30 @@ a {
 }
 
 
+.social-icons {
+    text-align: center;
+    a {
+        margin: 5px;
+    }
+}
+
+.social-icon {
+    font-size: 0;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background-size: contain;
+    background-color: #a8d8f0;
+}
+
+
+@mixin background($img_path) {
+  -webkit-mask-image: url($img_path);
+  mask-image: url($img_path);
+}
+.facebook-icon { @include background('/app/hello/icons/facebook.svg'); }
+.linkedin-icon { @include background('/app/hello/icons/linkedin.svg'); }
+.docker-icon   { @include background('/app/hello/icons/docker.svg');   }
+.drupal-icon   { @include background('/app/hello/icons/drupal.svg');   }
+.github-icon   { @include background('/app/hello/icons/github.svg');   }
+.codepen-icon  { @include background('/app/hello/icons/codepen.svg');  }

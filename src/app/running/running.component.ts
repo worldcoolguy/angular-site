@@ -65,9 +65,10 @@ export class EndomondoLastActivity {
 @Component({
     selector: 'running-graph',
     providers: [EndomondoService],
+    styleUrls: ['running.scss'],
     template: `
     
-      <div>
+      <div class="chart-container">
         <canvas baseChart
                 [datasets]="barChartData"
                 [labels]="barChartLabels"
@@ -173,7 +174,7 @@ export class RunningGraphHistory {
 })
 export class RunningBackgroundDirective {
     constructor(el: ElementRef) {
-        let url = './app/running/images/IMG_2598.JPG';
+        let url = './app/running/images/tumblr_oaocaphq0H1terqfzo1_1280.jpg';
         el.nativeElement.style.backgroundImage = 'url(' + url + ')';
     }
 }

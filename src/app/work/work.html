@@ -1,10 +1,36 @@
+<nav><a (click)="goBack()">← Tilbage</a></nav>
 <div class="sub-page" id="work">
-  <nav><a (click)="goBack()">←</a></nav>
 
+  <div class="content">
+
+  <div class="intro">
 <h1>Seneste projekter</h1>
-
   Her er et udvalg af nogle spændende projekter jeg har arbejdet på.
+  </div>
+    <div class="projects">
 
+    <project class="project-container" *ngFor="let project of projects" [project]="project"></project>
+
+    <div class="selected_project">
+      <router-outlet name="projectInfo"></router-outlet>
+
+      <h1>Novasol Extranet</h1>
+      <p>Aug 2015 - Aug 2016 : 2100 timer</p>
+      <p>Teknologier: Drupal 7, Docker, Swagger, Neat, Gulp</p>
+      <p>Some description</p>
+
+    </div>
+    </div>
+  <div class="closure">
+  <p>Andre projekter: <a href="https://scleroseforeningen.dk/">Sclerose foreningen</a>, <a href="http://ida.dk/">Ingeniørforeningen</a>, <a href="http://engineerthefuture.dk/">Engineer the Future</a>, flere <a href="http://www.ting.dk/content/om-dingting">ding projekter</a> for biblioteker.</p>
+
+  <p>Se GitHub og codepen.io</p>
+  </div>
+</div>
+</div>
+
+
+<!--
 <ul>
   <li>
     <details>
@@ -75,8 +101,5 @@
 
   </li>
 </ul>
+-->
 
-  <p>Andre projekter: <a href="https://scleroseforeningen.dk/">Sclerose foreningen</a>, <a href="http://ida.dk/">Ingeniørforeningen</a>, <a href="http://engineerthefuture.dk/">Engineer the Future</a>, flere <a href="http://www.ting.dk/content/om-dingting">ding projekter</a> for biblioteker.</p>
-
-<p>Se GitHub og codepen.io</p>
-</div>

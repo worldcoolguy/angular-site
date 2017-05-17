@@ -4,4 +4,5 @@ export interface Activity {
     distance: string;
     time: string;
     highscore: string;
+    official: string;
 }

@@ -9,3 +9,46 @@ li {
 }
 details {}
 
+
+
+.sub-page {
+  overflow: hidden;
+
+}
+
+.content {
+  padding: 10px;
+
+  box-sizing: border-box;
+  height: 94vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 6vh;
+}
+
+
+.projects {
+  flex-grow: 1;
+  display:grid;
+  grid-template-rows: 30vh 30vh;
+  grid-template-columns: 30vh 30vh 30vh 30vh;
+}
+
+.selected_project {
+  border: 1px solid blue;
+  margin: 10px;
+}
+
+.project-container {
+  overflow: hidden;
+  display: block;
+
+  border: 1px solid red;
+  margin: 10px;
+    //grid-column-start: 1;
+    //grid-column-end: 2;
+    //grid-row-start: 1;
+    //grid-row-end: 3;
+
+}

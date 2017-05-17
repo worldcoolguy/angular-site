@@ -2,7 +2,7 @@ export interface Project {
   name: string;
   dateFrom: string;
   dateTo: string;
-  hours: number;
-  technologies: any;
+  hours: Array<number>;
+  technologies: Array<string>;
   description: string;
 }
