@@ -1,0 +1,22 @@
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  .content {
+    padding-left: 25%;
+    width: 50%;
+  }
+  .landing-page .background-blur {
+    width: 50%;
+  }
+  .landing-page .background-blur .background2 {
+    width: 200%;
+  }
+}
+
+@media only screen and (min-aspect-ratio: 1/1) {
+  .badge-container {
+    margin: 20px 0;
+     h1, h3 {
+       display: inline-block;
+     }
+  }
+}
