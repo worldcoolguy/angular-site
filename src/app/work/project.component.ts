@@ -1,4 +1,4 @@
-import { Component, Injectable, Input } from '@angular/core';
+import {Component, Injectable, Input, OnInit} from '@angular/core';
 import {Project} from "./project";
 
 
@@ -8,22 +8,21 @@ import {Project} from "./project";
 })
 
 
-export class ProjectComponent {
+export class ProjectComponent{
 
   private _project: any;
 
   @Input()
-  set project(project: string) {
+  set project(project: Project) {
     this._project = project;
     this._project.hoursCombined = '10 timer';
   }
-  get project(): string { return this._project; }
-
+  get project(): Project { return this._project; }
 }
 
 @Component({
   selector: 'project-info',
-  templateUrl: 'project.html'
+  templateUrl: 'project-info.html'
 })
 
 
@@ -32,10 +31,12 @@ export class ProjectInfoComponent {
   private _project: any;
 
   @Input()
-  set project(project: string) {
+  set project(project: Project) {
     this._project = project;
     this._project.hoursCombined = '10 timer';
+
   }
-  get project(): string { return this._project; }
+  get project(): Project { return this._project; }
 
 }
+

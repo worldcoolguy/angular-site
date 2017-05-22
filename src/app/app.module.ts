@@ -10,6 +10,9 @@ import { HttpModule } from '@angular/http';
 import { ChartsModule } from 'ng2-charts';
 import { HelloComponent, HelloBackgroundDirective } from './hello/hello.component';
 import { WorkComponent } from './work/work.component';
+import { ProjectService } from './work/project.service';
+
+import { ProjectComponent, ProjectInfoComponent } from './work/project.component';
 import { IpscComponent } from './ipsc/ipsc.component';
 import { GalleryComponent } from './ipsc/gallery.component';
 import { RunningComponent,
@@ -34,6 +37,8 @@ import { ContactComponent } from './contact/contact.component';
     HelloComponent,
     HelloBackgroundDirective,
     WorkComponent,
+    ProjectComponent,
+    ProjectInfoComponent,
     IpscComponent,
     GalleryComponent,
     RunningComponent,
@@ -56,6 +61,7 @@ import { ContactComponent } from './contact/contact.component';
   ],
   providers: [
     GithubService
+    ProjectService,
   ],
   bootstrap: [ AppComponent ]
 })

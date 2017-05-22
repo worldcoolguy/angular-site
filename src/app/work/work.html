@@ -1,5 +1,5 @@
-<nav><a (click)="goBack()">← Tilbage</a></nav>
 <div class="sub-page" id="work">
+  <nav><a (click)="goBack()">← Tilbage</a></nav>
 
   <div class="content">
 
@@ -7,19 +7,12 @@
 <h1>Seneste projekter</h1>
   Her er et udvalg af nogle spændende projekter jeg har arbejdet på.
   </div>
-    <div class="projects">
+    <div class="projects" [ngClass]="{'project-choosen': selectedproject}">
 
-    <project class="project-container" *ngFor="let project of projects" [project]="project"></project>
+    <project class="project-container" [ngClass]="{'active': selectedproject == project.key}" *ngFor="let project of projects | slice:0:6;" [project]="project" [routerLink]="['/latest-work', project.key]"></project>
 
-    <div class="selected_project">
-      <router-outlet name="projectInfo"></router-outlet>
+    <project-info class="project-element" [ngClass]="{'active': selectedproject == project.key}" *ngFor="let project of projects | slice:0:6;" [project]="project"></project-info>
 
-      <h1>Novasol Extranet</h1>
-      <p>Aug 2015 - Aug 2016 : 2100 timer</p>
-      <p>Teknologier: Drupal 7, Docker, Swagger, Neat, Gulp</p>
-      <p>Some description</p>
-
-    </div>
     </div>
   <div class="closure">
   <p>Andre projekter: <a href="https://scleroseforeningen.dk/">Sclerose foreningen</a>, <a href="http://ida.dk/">Ingeniørforeningen</a>, <a href="http://engineerthefuture.dk/">Engineer the Future</a>, flere <a href="http://www.ting.dk/content/om-dingting">ding projekter</a> for biblioteker.</p>
@@ -28,78 +21,3 @@
   </div>
 </div>
 </div>
-
-
-<!--
-<ul>
-  <li>
-    <details>
-      <summary>
-        <h1>Samvirke</h1>
-        <p>Timer på projektet: 300</p></summary>
-      DDS.dk er bygget på Drupal 8 In mollis ultricies sollicitudin. Nunc tristique tempor lacinia. Vestibulum non est vel diam rhoncus faucibus. Vestibulum a odio at lorem vestibulum varius. Fusce mattis libero vel fringilla dictum. Pellentesque dictum hendrerit imperdiet. Praesent pellentesque at neque eget tincidunt.
-    </details>
-  </li>
-  <li style="display: none">
-  <details>
-    <summary>
-      <h1>Det Danske Spejderkorps</h1>
-      <p>Timer på projektet: 300</p></summary>
-    DDS.dk er bygget på Drupal 8 In mollis ultricies sollicitudin. Nunc tristique tempor lacinia. Vestibulum non est vel diam rhoncus faucibus. Vestibulum a odio at lorem vestibulum varius. Fusce mattis libero vel fringilla dictum. Pellentesque dictum hendrerit imperdiet. Praesent pellentesque at neque eget tincidunt.
-  </details>
-  </li>
-  <li>
-    <details>
-      <summary>
-        <h1>Novasol Ekstranet</h1>
-        </summary>
-      <p>Periode: Aug 2014 - Aug 1015</p>
-      <p>Timer på projektet: 300</p>
-      <p>Teknologier: Drupal 7, Swagger.io, Docker</p>
-      <p>Novasol Extranet er et lukket system der tilbyder husejere mulighed for at administrerer dele af udlejningen af deres ejendom. Sammen med Novasol var vi medvirkende til at definere det API vi skulle benytte for at tilgå relevant data, men også sikre at API'et blev så generisk at det let kunne benyttes af andre apps/services. Til dette formål brugte vi swagger.io for at have et klart overblik over hvordan API'et skulle udformes. Swagger generate gjorde det virkeligt let at lave koblingen mellem Drupal sitet og det definerede API.</p>
-      <p>Som led i udviklingen brugte vi et Dockersetup for at kunne være sikker på at alle udviklere havde det samme </p>
-    </details>
-
-  </li>
-  <li style="display: none">
-    <details>
-      <summary>
-        <h1>Copenhagen Open - IPSC Handgun match - Nordic Championship</h1>
-        <p>Timer på projektet: 300</p></summary>
-      DDS.dk er bygget på Drupal 8 In mollis ultricies sollicitudin. Nunc tristique tempor lacinia. Vestibulum non est vel diam rhoncus faucibus. Vestibulum a odio at lorem vestibulum varius. Fusce mattis libero vel fringilla dictum. Pellentesque dictum hendrerit imperdiet. Praesent pellentesque at neque eget tincidunt.
-    </details>
-
-  </li>
-  <li>
-
-    <details>
-      <summary>
-        <h1>DR.dk</h1>
-      </summary>
-      <p>Periode: Aug 2014 - Aug 1015</p>
-      <p>Timer på projektet: 300</p>
-      <p>Teknologier: Drupal 7, Bootstrap CSS</p>
-      <p>Danmarks Radio har siden 2012 været i gang med at udskifte deres produktionsplatform for online artikler fra Microsoft CMS til Drupal 7. I processen bistod jeg med sitebyg og komponentudvikling under migrering af bl.a. Viden/Kultur, X-factor, Melodigrandprix mm.</p>
-      <p>Opgaven handlede i første omgang om 1 til 1 migrering af indhold og frontend til det nye værktøj, men sideløbende med udviklingen af Drupal værktøjet, var DR i gang med at udvikle en ny frontend. DR Components, en mere moderene og plugable måde at tænke mobile først på, istedet for det nuværende hvor man er nødt til at læse artiklerne på et seperat nyhedssite.</p>
-      <p>Som proof of concept på den nye frontend, var jeg en del af holdet der skulle implementere denne frontend på DR Viden.</p>
-    </details>
-
-  </li>
-  <li>
-
-    <details>
-      <summary>
-        <h1>GoCook - Coop</h1>
-      </summary>
-      <p>Periode: Aug 2014 - Aug 1015</p>
-      <p>Timer på projektet: 300</p>
-      <p>Teknologier: Drupal 7, Rest API, jQuery</p>
-      <p>Danmarks Radio har siden 2012 været i gang med at udskifte deres produktionsplatform for online artikler fra Microsoft CMS til Drupal 7. I processen bistod jeg med sitebyg og komponentudvikling under migrering af bl.a. Viden/Kultur, X-factor, Melodigrandprix mm.</p>
-      <p>Opgaven handlede i første omgang om 1 til 1 migrering af indhold og frontend til det nye værktøj, men sideløbende med udviklingen af Drupal værktøjet, var DR i gang med at udvikle en ny frontend. DR Components, en mere moderene og plugable måde at tænke mobile først på, istedet for det nuværende hvor man er nødt til at læse artiklerne på et seperat nyhedssite.</p>
-      <p>Som proof of concept på den nye frontend, var jeg en del af holdet der skulle implementere denne frontend på DR Viden.</p>
-    </details>
-
-  </li>
-</ul>
--->
-
