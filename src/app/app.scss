@@ -29,12 +29,11 @@ nav {
   height: 6vh;
   display: flex;
   align-items: center;
-  padding-left: 10px;
 
   z-index: 10;
   a {
+    margin-left: 10px;
     display: inline-block;
-
     color:#fff;
     font-size: 3vh;
     text-align: center;

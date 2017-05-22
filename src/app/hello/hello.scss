@@ -30,10 +30,9 @@ a {
 .content {
     box-sizing: border-box;
     color: #fff;
-    padding:30px;
-    padding-left: 25%;
+    padding: 0 30px;
     height: 100%;
-    width: 50%;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.3);
     overflow: hidden;
     position: relative;
@@ -63,9 +62,10 @@ a {
   -webkit-mask-image: url($img_path);
   mask-image: url($img_path);
 }
-.facebook-icon { @include background('/app/hello/icons/facebook.svg'); }
-.linkedin-icon { @include background('/app/hello/icons/linkedin.svg'); }
-.docker-icon   { @include background('/app/hello/icons/docker.svg');   }
-.drupal-icon   { @include background('/app/hello/icons/drupal.svg');   }
-.github-icon   { @include background('/app/hello/icons/github.svg');   }
-.codepen-icon  { @include background('/app/hello/icons/codepen.svg');  }
+.facebook-icon { @include background('assets/icons/facebook.svg'); }
+.linkedin-icon { @include background('assets/icons/linkedin.svg'); }
+.docker-icon   { @include background('assets/icons/docker.svg');   }
+.drupal-icon   { @include background('assets/icons/drupal.svg');   }
+.github-icon   { @include background('assets/icons/github.svg');   }
+.codepen-icon  { @include background('assets/icons/codepen.svg');  }
+

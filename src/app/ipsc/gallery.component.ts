@@ -17,13 +17,13 @@ export class GalleryComponent implements AfterViewInit{
   // Override the passed attribute to set general location of gallery images.
   @Input()
   set image(image: string) {
-    this._imageurl = './app/ipsc/images/' + image.trim();
+    this._imageurl = 'assets/images/' + image.trim();
   }
   get image(): string { return this._imageurl; }
 
   @Input()
   set video(video: string) {
-    this._videourl = './app/ipsc/' + video.trim();
+    this._videourl = 'assets/' + video.trim();
   }
   get video(): string { return this._videourl;}
 
