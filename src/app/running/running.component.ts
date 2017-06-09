@@ -1,14 +1,15 @@
-import { Component, Injectable, Directive, ElementRef } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import {Location} from '@angular/common';
 import { EndomondoService } from './endomondo.service';
 import { Activity } from './activity';
-import { BaseChartDirective } from 'ng2-charts';
-
 
 @Component({
     selector: 'running',
-    templateUrl: "./running.html",
-    styleUrls: ['./running.scss'],
+    templateUrl: "running.html",
+    styleUrls: [
+      'running.scss',
+      'breakpoints.scss'
+    ],
 })
 
 export class RunningComponent {
@@ -21,13 +22,34 @@ export class RunningComponent {
 }
 
 @Component({
+    selector: 'running-official',
+    providers: [EndomondoService],
+    template: `
+      <table>
+        <tr *ngFor="let activity of (activities | RunningPipe | OfficialPipe )">
+          <td>{{ activity.date }}</td>
+          <td>{{ activity.official }}</td>
+          <td>{{ activity.distance }}</td>
+          <td>{{ activity.time }}</td>
+        </tr>
+      </table>`
+})
+export class RunningOfficial {
+    private activities:Activity[];
+
+    constructor(private _endomondoService:EndomondoService) {
+        this._endomondoService.getActivities().subscribe(activities => {this.activities = activities});
+    }
+}
+
+
+@Component({
     selector: 'running-highscore',
     providers: [EndomondoService],
     template: `
     <table>
     <tr *ngFor="let activity of (activities | RunningPipe | HighscorePipe )">
      <td>{{ activity.date }}</td>
-     <td>{{ activity.activity }}</td>
      <td>{{ activity.distance }}</td>
      <td>{{ activity.time }}</td>
     </tr>
@@ -48,7 +70,6 @@ export class RunningHighscores {
     template: `<table>
       <tr *ngFor="let activity of (activities | RunningPipe )| slice:0:3;">
         <td>{{ activity.date }}</td>
-        <td>{{ activity.activity }}</td>
         <td>{{ activity.distance }}</td>
         <td>{{ activity.time }}</td>
       </tr>
@@ -166,15 +187,5 @@ export class RunningGraphHistory {
                 this.barChartData = [{ data: distances }];
             });
         });
-    }
-}
-
-@Directive({
-    selector: '[running-background]',
-})
-export class RunningBackgroundDirective {
-    constructor(el: ElementRef) {
-        let url = './app/running/images/tumblr_oaocaphq0H1terqfzo1_1280.jpg';
-        el.nativeElement.style.backgroundImage = 'url(' + url + ')';
     }
 }

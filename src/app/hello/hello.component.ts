@@ -1,4 +1,4 @@
-import { Component, Directive, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'hello',
@@ -13,16 +13,5 @@ import { Component, Directive, ElementRef } from '@angular/core';
 export class HelloComponent {
   constructor() {
 
-  }
-}
-
-
-@Directive({
-  selector: '[hello-background]',
-})
-export class HelloBackgroundDirective {
-  constructor(el: ElementRef) {
-    let url = 'assets/images/img-0003.jpg';
-    el.nativeElement.style.backgroundImage = 'url(' + url + ')';
   }
 }

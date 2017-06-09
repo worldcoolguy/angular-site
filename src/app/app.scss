@@ -26,16 +26,39 @@ nav {
   background-color: rgba(0,0,0,.6);
   position: absolute;
   width: 100%;
-  height: 6vh;
+  height: 40px;
   display: flex;
   align-items: center;
 
   z-index: 10;
   a {
+    text-decoration: none;
     margin-left: 10px;
     display: inline-block;
     color:#fff;
-    font-size: 3vh;
+    font-size: 18px;
     text-align: center;
   }
 }
+
+
+h1 {
+  margin: 0.1em 0;
+  font-size: 28px;
+}
+body {
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+a {
+  color: #a8d8f0;
+}
+
+.blackend-box {
+  margin: 2.5px;
+  background-color: rgba(0,0,0,.4);
+  border: 1px solid black;
+  padding: 10px;
+}
+

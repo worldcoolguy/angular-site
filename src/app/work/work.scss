@@ -6,20 +6,27 @@
 
 .content {
 
-  padding: 6vh 10px 0 10px;
+  padding: 42.5px 2.5px 2.5px 2.5px;
 
   box-sizing: border-box;
 
   position: relative;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  &.project-choosen {
+    .intro, .closure {
+      display: none;
+    }
+  }
 
-  height: 94vh;
 }
 
 
+
+
 .projects {
-  margin: 0 -10px;
+  margin: 0;
   height:100%;
   justify-content: center;
   flex-grow: 1;
@@ -27,13 +34,13 @@
 
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr;
-  &.project-choosen {
-    grid-template-rows: 2fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+  .project-choosen & {
+    grid-template-rows: 4fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .project-element {
-    grid-column: 1 / span 2;
+    grid-column: 1 / span 3;
     grid-row: 1;
   }
 
@@ -41,7 +48,7 @@
   @media all and (min-aspect-ratio: 1/1) {
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
-    &.project-choosen {
+    .project-choosen & {
       grid-template-rows: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 2fr;
     }
@@ -49,39 +56,25 @@
       grid-column: 3;
       grid-row: 1 / span 3;
     }
-
   }
 }
 
 
 
-.selected_project {
-  border: 1px solid blue;
-  margin: 10px;
-}
-
 .project-container {
   overflow: hidden;
-  display: block;
-
-  border: 1px solid red;
-  margin: 10px;
-    //grid-column-start: 1;
-    //grid-column-end: 2;
-    //grid-row-start: 1;
-    //grid-row-end: 3;
-
+  padding: 10px;
+  &.active {
+    background: rgba(255,255,255,.4);
+  }
 }
 
 
 .project-element {
   display: none;
-  margin: 10px;
   &.active {
     display: block;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
   }
-}
-
-.active {
-  border: 1px solid blue;
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Directive, ElementRef} from '@angular/core';
 import { Location } from '@angular/common';
 import { Project } from './project';
 import { ProjectInfoComponent } from './project.component';
@@ -9,7 +9,7 @@ import { ProjectService} from "./project.service";
 @Component({
     selector: 'latest-work',
     templateUrl: "work.html",
-    styleUrls: ['work.scss', 'background.scss']
+    styleUrls: ['work.scss', 'background.scss', 'work.breakpoints.scss']
 })
 export class WorkComponent implements OnInit {
     public selectedproject: any;
@@ -19,9 +19,6 @@ export class WorkComponent implements OnInit {
     constructor (private _location: Location, private route: ActivatedRoute, private _projectService:ProjectService) {
         this._projectService.getProjects().subscribe(projects => {this.projects = projects});
 
-    }
-    goBack() {
-        this._location.back();
     }
 
     ngOnInit() {

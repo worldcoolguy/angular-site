@@ -24,11 +24,11 @@
 
 .content {
   z-index: 4;
-  margin-top: 6vh;
-  padding: 4px;
+  margin-top: 42.5px;
+  padding: 2.5px;
 
   box-sizing: border-box;
-  height: 94vh;
+  height:100%;
   position: relative;
 }
 
@@ -42,7 +42,8 @@
 
 
 .flex-row {
-  display:flex;
+  // display overridden in media query.
+  display:block;
   flex-direction: row;
   .thirtythree {
     flex-grow: 1;
@@ -50,14 +51,14 @@
       height: 100%;
     }
     &:nth-child(1) {
-      margin-right: 2px;
+//      margin-right: 2px;
     }
     &:nth-child(2) {
-      margin-left: 2px;
-      margin-right: 2px;
+  //    margin-left: 2px;
+   //   margin-right: 2px;
     }
     &:nth-child(3) {
-      margin-left: 2px;
+  //    margin-left: 2px;
     }
   }
 }
@@ -67,14 +68,6 @@ h1, h2 {
   margin-top:0;
 }
 
-
-.inner {
-
-  box-sizing: border-box;
-  background-color: rgba(0,0,0,.4);
-  padding: 10px;
-  border: 1px solid black;
-}
 
 .last {
   flex-grow: 1;
@@ -91,10 +84,13 @@ h1, h2 {
 
 .chart-container {
   //height: 100%;
-  border: 1px solid red;
+  //border: 1px solid red;
   //padding: 0 130px;
   width: 100%;
   max-width: 940px;
+}
+.running-graph-container {
+  display: none;
 }
 
 running-graph {

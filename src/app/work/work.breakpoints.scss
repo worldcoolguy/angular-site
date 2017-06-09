@@ -1,0 +1,11 @@
+/* Small Devices, Tablets */
+@media only screen and (min-width : 480px) and (min-height:480px){
+  .content {
+    &.project-choosen {
+      .intro, .closure {
+        display: block;
+      }
+    }
+
+  }
+}

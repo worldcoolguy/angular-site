@@ -8,7 +8,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 
 import { ChartsModule } from 'ng2-charts';
-import { HelloComponent, HelloBackgroundDirective } from './hello/hello.component';
+import { BackgroundDirective} from './background/background.directive';
+
+import { HelloComponent } from './hello/hello.component';
 import { WorkComponent } from './work/work.component';
 import { ProjectService } from './work/project.service';
 
@@ -18,9 +20,9 @@ import { GalleryComponent } from './ipsc/gallery.component';
 import { RunningComponent,
          EndomondoLastActivity,
          RunningHighscores,
-         RunningBackgroundDirective,
+         RunningOfficial,
          RunningGraphHistory} from './running/running.component';
-import { RunningPipe, HighscorePipe } from './running/running.pipe';
+import { RunningPipe, HighscorePipe, OfficialPipe } from './running/running.pipe';
 
 import { RepoBrowserComponent } from './github/repo-browser/repo-browser.component';
 import { RepoListComponent } from './github/repo-list/repo-list.component';
@@ -31,11 +33,11 @@ import { ContactComponent } from './contact/contact.component';
 @NgModule({
   declarations: [
     AppComponent,
+    BackgroundDirective,
     RepoBrowserComponent,
     RepoListComponent,
     RepoDetailComponent,
     HelloComponent,
-    HelloBackgroundDirective,
     WorkComponent,
     ProjectComponent,
     ProjectInfoComponent,
@@ -43,12 +45,12 @@ import { ContactComponent } from './contact/contact.component';
     GalleryComponent,
     RunningComponent,
     RunningGraphHistory,
-
+    RunningOfficial,
     RunningHighscores,
     EndomondoLastActivity,
     RunningPipe,
     HighscorePipe,
-    RunningBackgroundDirective
+    OfficialPipe
   ],
   imports: [
     BrowserModule,
