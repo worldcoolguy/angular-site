@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core'
+import { NgModule} from '@angular/core'
 import { RouterModule } from '@angular/router';
-import { rootRouterConfig } from './app.routes';
-import { AppComponent } from './app.component';
-import { GithubService } from './github/shared/github.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 
+import { rootRouterConfig } from './app.routes';
+import { AppComponent } from './app.component';
+
 import { ChartsModule } from 'ng2-charts';
+
 import { BackgroundDirective} from './background/background.directive';
 
 import { HelloComponent } from './hello/hello.component';
@@ -22,21 +22,13 @@ import { RunningComponent,
          RunningHighscores,
          RunningOfficial,
          RunningGraphHistory} from './running/running.component';
-import { RunningPipe, HighscorePipe, OfficialPipe } from './running/running.pipe';
+import { RunningPipe, HighscorePipe, OfficialPipe, CountPipe, TotalKMPipe } from './running/running.pipe';
 
-import { RepoBrowserComponent } from './github/repo-browser/repo-browser.component';
-import { RepoListComponent } from './github/repo-list/repo-list.component';
-import { RepoDetailComponent } from './github/repo-detail/repo-detail.component';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BackgroundDirective,
-    RepoBrowserComponent,
-    RepoListComponent,
-    RepoDetailComponent,
     HelloComponent,
     WorkComponent,
     ProjectComponent,
@@ -50,23 +42,21 @@ import { ContactComponent } from './contact/contact.component';
     EndomondoLastActivity,
     RunningPipe,
     HighscorePipe,
-    OfficialPipe
+    OfficialPipe,
+    CountPipe,
+    TotalKMPipe
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(rootRouterConfig, { useHash: false }),
     ChartsModule,
 
   ],
   providers: [
-    GithubService
     ProjectService,
+
   ],
   bootstrap: [ AppComponent ]
 })
-export class AppModule {
-
-}
+export class AppModule {}
