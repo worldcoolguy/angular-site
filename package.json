@@ -4,6 +4,7 @@
   "description": "A site about me.",
   "scripts": {
     "build": "webpack --progress",
+    "build:prod" : "webpack --progress --define process.env.NODE_ENV='production' --optimize-minimize",
     "watch": "npm run build -- --watch",
     "server": "webpack-dev-server --inline --progress --port 3000 --content-base src",
     "api": "json-server --watch src/api-mock-data.json --port 3004",
