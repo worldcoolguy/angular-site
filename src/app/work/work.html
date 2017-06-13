@@ -5,8 +5,9 @@
 
     <div class="intro blackend-box">
     <h1>Seneste projekter</h1>
-      <p>Her er de seneste og nogle udvalgte projekter jeg har været indvolveret i.</p>
+      <p>Her kan du læse lidt om nogle af de seneste projekter jeg har været indvolveret i.</p>
     </div>
+
       <div class="projects">
 
       <project class="project-container blackend-box" [ngClass]="{'active': selectedproject == project.key}" *ngFor="let project of projects | slice:0:6;" [project]="project" [routerLink]="['/latest-work', project.key]"></project>

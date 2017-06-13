@@ -3,21 +3,24 @@
 }
 
 .project-logo {
+
+  //display:none !important;
   height: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
-  display: flex;
+
+  position: relative;
   img, svg {
     max-height: 100%;
     max-width: 100%;
+    // doesnt work in safari
     min-height: 100%;
     min-width: 100%;
 
-  }
-
-
-  svg path {
-    fill: #fff;
+    path {
+      fill: #fff;
+    }
   }
 }
 

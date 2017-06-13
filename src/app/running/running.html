@@ -1,5 +1,5 @@
 <div class="sub-page">
-    <nav><a (click)="goBack()">← Tilbage</a></nav>
+    <nav><a (click)="goBack()">←</a></nav>
 
     <div class="content flex-col">
 
@@ -7,7 +7,7 @@
 
         <h1>Løb</h1>
 
-            <p>På Endomondo har jeg {{totalActivities}} hvoraf {{runningActivities}} er løb med en samlet distance på {{runningActivitiesDistance}}, derfor tænkte jeg om ikke det ku bruges til at lege lidt med HTTP i Angular. Endomondo har ikke noget offentligt tilgængeligt API, så jeg lavede en screenscrape af mine aktiviteter konsolideret ind i et <a href="https://github.com/troelslenda/resume-api">JSON REST API</a>.</p>
+            <p>På Endomondo har jeg {{activities | CountPipe }} aktiviteter hvoraf {{activities | RunningPipe | CountPipe }} aktiviteter er løb med en samlet distance på {{ activities | RunningPipe | TotalKMPipe }} km, derfor tænkte jeg om ikke det ku bruges til at lege lidt med HTTP i Angular. Endomondo har ikke noget offentligt tilgængeligt API, så jeg lavede en screenscrape af mine aktiviteter konsolideret ind i et <a href="https://github.com/troelslenda/resume-api">JSON REST API</a>.</p>
 
         </div>
 
@@ -41,7 +41,7 @@
 
         <h2>Aktivitet over tid</h2>
 
-        <running-graph></running-graph>
+
 
                 </div>
     </div>

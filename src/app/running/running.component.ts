@@ -6,6 +6,7 @@ import { Activity } from './activity';
 @Component({
     selector: 'running',
     templateUrl: "running.html",
+    providers: [EndomondoService],
     styleUrls: [
       'running.scss',
       'breakpoints.scss'
@@ -13,7 +14,11 @@ import { Activity } from './activity';
 })
 
 export class RunningComponent {
-    constructor (private _location: Location) {
+
+    private activities:Activity[];
+
+    constructor(private _endomondoService:EndomondoService, private _location: Location) {
+        this._endomondoService.getActivities().subscribe(activities => {this.activities = activities});
     }
 
     goBack() {
@@ -24,6 +29,7 @@ export class RunningComponent {
 @Component({
     selector: 'running-official',
     providers: [EndomondoService],
+    styleUrls: ['running.scss'],
     template: `
       <table>
         <tr *ngFor="let activity of (activities | RunningPipe | OfficialPipe )">
@@ -46,10 +52,12 @@ export class RunningOfficial {
 @Component({
     selector: 'running-highscore',
     providers: [EndomondoService],
+    styleUrls: ['running.scss'],
     template: `
     <table>
     <tr *ngFor="let activity of (activities | RunningPipe | HighscorePipe )">
      <td>{{ activity.date }}</td>
+      <td>Løb</td>
      <td>{{ activity.distance }}</td>
      <td>{{ activity.time }}</td>
     </tr>
@@ -67,9 +75,11 @@ export class RunningHighscores {
 @Component({
     selector: 'running-last-activity',
     providers: [EndomondoService],
+    styleUrls: ['running.scss'],
     template: `<table>
       <tr *ngFor="let activity of (activities | RunningPipe )| slice:0:3;">
         <td>{{ activity.date }}</td>
+        <td>Løb</td>
         <td>{{ activity.distance }}</td>
         <td>{{ activity.time }}</td>
       </tr>

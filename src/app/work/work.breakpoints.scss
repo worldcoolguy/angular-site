@@ -1,11 +1,12 @@
 /* Small Devices, Tablets */
 @media only screen and (min-width : 480px) and (min-height:480px){
   .content {
-    &.project-choosen {
+    // Unfortunally the use of grid css doesn't comply with flex-grow.
+    //&.project-choosen {
       .intro, .closure {
         display: block;
       }
-    }
+    //}
 
   }
 }
