@@ -1,0 +1,71 @@
+.badge-container {
+  text-align: center;
+  margin: 20px 0;
+}
+.badge{
+  //background-color: rgba(240,240,240,.5);
+  //color: #000;
+  display: inline-block;
+  //border: 10px solid #a8d8f0;
+  //text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  //padding: 10px 30px;
+  //border-radius: 30px;
+  transform: rotate(-5deg);
+  //box-shadow: 5px 5px 5px black;
+}
+.badge h1, .badge h3 {
+  margin: 0;
+}
+
+
+
+
+
+.landing-page {
+  height: 100%;
+}
+
+.content {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+
+  box-sizing: border-box;
+  color: #fff;
+  padding: 0 10px;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 3;
+  box-shadow: 5px 0 20px rgba(0, 0, 0, 0.9);
+}
+
+
+.social-icons {
+  text-align: center;
+  a {
+    margin: 5px;
+  }
+}
+
+.social-icon {
+  font-size: 0;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-size: contain;
+  background-color: #a8d8f0;
+}
+
+
+@mixin background($img_path) {
+  -webkit-mask-image: url($img_path);
+  mask-image: url($img_path);
+}
+/*.facebook-icon { @include background('./assets/icons/facebook.svg'); }
+.linkedin-icon { @include background('assets/icons/linkedin.svg'); }
+.docker-icon   { @include background('assets/icons/docker.svg');   }
+.drupal-icon   { @include background('assets/icons/drupal.svg');   }
+.github-icon   { @include background('assets/icons/github.svg');   }
+.codepen-icon  { @include background('assets/icons/codepen.svg');  }*/
+
