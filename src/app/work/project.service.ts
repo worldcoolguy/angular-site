@@ -3,12 +3,13 @@ import { Http} from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { Project } from './project';
 import 'rxjs/Rx';
+import {environment} from "../../environments/environment";
 
 
 @Injectable()
 export class ProjectService {
 
-  private endpoint_url:string = "http://localhost:3004/projects";
+  private endpoint_url:string = environment.projectEndpoint;
 
   constructor (private http: Http) {}
 

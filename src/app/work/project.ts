@@ -5,6 +5,7 @@ export interface Project {
   dateFrom: string;
   dateTo?: string;
   hours: Array<number>;
+  totalTime?: number;
   technologies: Array<string>;
   description: string;
   logo: string;

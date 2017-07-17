@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  projectEndpoint: "http://troelslenda.com/api2/projects"
 };
