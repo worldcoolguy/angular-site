@@ -1,13 +1,13 @@
 import {Directive, ElementRef, Input, OnInit} from '@angular/core';
 
 @Directive({
-  selector: '[background]'
+  selector: '[appBackground]'
 })
 export class BackgroundDirective implements OnInit{
 
   //private el: ElementRef;
 
-  @Input() background: string;
+  @Input() appBackground: string;
 
   constructor(public el: ElementRef) {}
 
@@ -15,7 +15,7 @@ export class BackgroundDirective implements OnInit{
   ngOnInit() {
     console.log();
 
-    let url = './assets/images/' + this.background;
+    let url = './assets/images/' + this.appBackground;
     this.el.nativeElement.style.backgroundImage = 'url(' + url + ')';
   }
 }

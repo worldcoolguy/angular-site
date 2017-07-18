@@ -1,17 +1,15 @@
-import { Component } from '@angular/core';
-import { Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'ipsc',
-    templateUrl: "ipsc.html",
-    styleUrls : [
-      'ipsc.scss'
-    ]
+  selector: 'app-ipsc',
+  templateUrl: './ipsc.component.html',
+  styleUrls: ['./ipsc.component.scss']
 })
-export class IpscComponent {
-    constructor (private _location: Location) {
-    }
-    goBack() {
-        this._location.back();
-    }
+export class IpscComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
 }

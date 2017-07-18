@@ -1,17 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'hello',
-  templateUrl: "hello.html",
+  selector: 'app-hello',
+  templateUrl: './hello.component.html',
   styleUrls: [
-    'hello.scss',
-    'hello.background.scss',
-    'hello.breakpoints.scss'
-  ],
-
+    './hello.component.scss',
+    './hello.background.scss',
+    './hello.breakpoints.scss']
 })
-export class HelloComponent {
-  constructor() {
+export class HelloComponent implements OnInit {
 
+  constructor() { }
+
+  ngOnInit() {
   }
+
 }
