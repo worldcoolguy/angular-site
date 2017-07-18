@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  projectEndpoint: "http://localhost:4201/projects"
+  projectEndpoint: "http://localhost:4201/projects",
+  activityEndpoint: "http://localhost:4201/activities"
 };

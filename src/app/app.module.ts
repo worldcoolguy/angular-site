@@ -12,6 +12,12 @@ import { WorkComponent } from './work/work.component';
 import { ProjectInfoComponent, ProjectComponent } from './work/project.component';
 import { ProjectService } from './work/project.service';
 import { GalleryComponent } from './ipsc/gallery.component';
+import { RunningComponent,
+  EndomondoLastActivity,
+  RunningHighscores,
+  RunningOfficial
+  } from './running/running.component';
+import { RunningPipe, HighscorePipe, OfficialPipe, CountPipe, TotalKMPipe } from './running/running.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +28,16 @@ import { GalleryComponent } from './ipsc/gallery.component';
     WorkComponent,
     ProjectInfoComponent,
     ProjectComponent,
-    GalleryComponent
+    GalleryComponent,
+    RunningComponent,
+    EndomondoLastActivity,
+    RunningHighscores,
+    RunningOfficial,
+    RunningPipe,
+    HighscorePipe,
+    OfficialPipe,
+    CountPipe,
+    TotalKMPipe
   ],
   imports: [
     BrowserModule,
