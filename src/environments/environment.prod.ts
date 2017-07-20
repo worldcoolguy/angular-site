@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  projectEndpoint: "http://troelslenda.com/api2/projects",
-  activityEndpoint: "http://troelslenda.com/api2/activities"
+  projectEndpoint: "http://troels.lenda.dk/api/projects",
+  activityEndpoint: "http://troels.lenda.dk/api/activities"
 };

@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "server": "ng serve --open",
-    "build": "ng build --prod -bh /resume2/",
+    "build": "ng build --prod -bh /",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
