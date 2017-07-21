@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/troelslenda/resume.svg?branch=master)](https://travis-ci.org/troelslenda/resume)
 [![Coverage Status](https://coveralls.io/repos/github/troelslenda/resume/badge.svg?branch=master)](https://coveralls.io/github/troelslenda/resume?branch=master)
+[![Code Climate](https://codeclimate.com/github/troelslenda/resume/badges/gpa.svg)](https://codeclimate.com/github/troelslenda/resume)
 
 This project has simple routing to components showcasing a my venture throughout Angulars functionallity and what I've learned so far.
 
