@@ -17,6 +17,7 @@ import { RunningComponent,
   RunningHighscores,
   RunningOfficial
   } from './running/running.component';
+import { RunningService } from './running/running.service';
 import { RunningPipe, HighscorePipe, OfficialPipe, CountPipe, TotalKMPipe } from './running/running.pipe';
 
 @NgModule({
@@ -46,7 +47,8 @@ import { RunningPipe, HighscorePipe, OfficialPipe, CountPipe, TotalKMPipe } from
 
   ],
   providers: [
-    ProjectService
+    ProjectService,
+    RunningService
   ],
   bootstrap: [AppComponent]
 })

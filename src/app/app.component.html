@@ -1,1 +1,7 @@
+<nav *ngIf="router.url !== '/'">
+  <a [routerLink]="'/'">←</a>
+  <a routerLink="/latest-work" [ngClass]="{'active' : location === 'latest-work'}">seneste projekter</a>
+  <a [routerLink]="['/running']" [ngClass]="{'active' : location === 'running'}">løbetur</a>
+  <a routerLink="/ipsc" [ngClass]="{'active' : location === 'ipsc'}">sportsskydning</a>
+</nav>
 <router-outlet></router-outlet>

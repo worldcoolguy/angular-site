@@ -6,7 +6,6 @@ import { Activity } from './activity';
 @Component({
   selector: 'running',
   templateUrl: "running.component.html",
-  providers: [RunningService],
   styleUrls: [
     './running.breakpoints.scss',
     './running.component.scss'
@@ -28,7 +27,6 @@ export class RunningComponent {
 
 @Component({
   selector: 'running-official',
-  providers: [RunningService],
   styleUrls: ['running.component.scss'],
   template: `
     <table>
@@ -51,7 +49,6 @@ export class RunningOfficial {
 
 @Component({
   selector: 'running-highscore',
-  providers: [RunningService],
   styleUrls: ['running.component.scss'],
   template: `
     <table>
@@ -74,7 +71,6 @@ export class RunningHighscores {
 
 @Component({
   selector: 'running-last-activity',
-  providers: [RunningService],
   styleUrls: ['running.component.scss'],
   template: `<table>
     <tr *ngFor="let activity of (activities | RunningPipe )| slice:0:3;">

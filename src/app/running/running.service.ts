@@ -11,7 +11,7 @@ export class RunningService {
   private endpoint_url:string = environment.activityEndpoint;
   constructor (private http: Http) {}
 
-  getActivities(): Observable<Activity[]> {
+  public getActivities(): Observable<Activity[]> {
     return this.http.get(this.endpoint_url).map(res => res.json() as Activity[]);
   }
 
