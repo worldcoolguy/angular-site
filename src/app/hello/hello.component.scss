@@ -62,10 +62,18 @@
   -webkit-mask-image: url($img_path);
   mask-image: url($img_path);
 }
-/*.facebook-icon { @include background('./assets/icons/facebook.svg'); }
-.linkedin-icon { @include background('assets/icons/linkedin.svg'); }
-.docker-icon   { @include background('assets/icons/docker.svg');   }
-.drupal-icon   { @include background('assets/icons/drupal.svg');   }
-.github-icon   { @include background('assets/icons/github.svg');   }
-.codepen-icon  { @include background('assets/icons/codepen.svg');  }*/
+.facebook-icon { @include background('/assets/icons/facebook.svg'); }
+.linkedin-icon { @include background('/assets/icons/linkedin.svg'); }
+.docker-icon   { @include background('/assets/icons/docker.svg');   }
+.drupal-icon   { @include background('/assets/icons/drupal.svg');   }
+.github-icon   { @include background('/assets/icons/github.svg');   }
+.codepen-icon  { @include background('/assets/icons/codepen.svg');  }
 
+.credits {
+  display: none;
+  z-index: 3;
+  background: rgba(176, 224, 230, 0.6);
+  padding: 3px;
+  border-radius: 5px;
+  a {text-decoration: none;}
+}

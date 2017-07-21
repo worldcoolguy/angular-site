@@ -12,10 +12,19 @@ declare let ga:Function;
   ]
 })
 export class AppComponent {
-  currentRoute: string = '';
+
+  public location: string;
+
   constructor(public router: Router) {
+
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
+
+        // Get the first part of url.
+        let parts = router.url.split('/');
+        this.location = parts[1];
+
+
         ga('set', 'page', event.urlAfterRedirects);
         ga('send', 'pageview');
       }
