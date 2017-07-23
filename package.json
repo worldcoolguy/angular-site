@@ -6,9 +6,9 @@
     "ng": "ng",
     "server": "ng serve --open",
     "build": "ng build --prod -bh /",
-    "test": "ng test --watch false",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
+    //"test": "ng test --watch false",
+    //"lint": "ng lint",
+    //"e2e": "ng e2e",
     "api": "json-server --watch src/api-mock-data.json --port 4201",
     "start": "concurrently -p \"[{name}]\" -n \"Webpack,Json-server\" -c \"bgBlue.bold,bgMagenta.bold,bgGreen.bold\" \"npm run server\" \"npm run api\""
   },
