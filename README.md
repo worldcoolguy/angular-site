@@ -1,4 +1,4 @@
-## Resume for Troels Lenda
+## Angular playground project
 
 [![Build Status](https://travis-ci.org/troelslenda/resume.svg?branch=master)](https://travis-ci.org/troelslenda/resume)
 [![Coverage Status](https://coveralls.io/repos/github/troelslenda/resume/badge.svg?branch=master)](https://coveralls.io/github/troelslenda/resume?branch=master)
